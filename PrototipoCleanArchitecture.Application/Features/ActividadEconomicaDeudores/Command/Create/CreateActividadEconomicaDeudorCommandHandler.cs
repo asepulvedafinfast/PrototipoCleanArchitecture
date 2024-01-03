@@ -21,11 +21,11 @@
                 FechaIngreso = request.FechaIngreso
             };
 
-            _repository.Add(actividadEconomicaDeudor);
+            //_repository.Add(actividadEconomicaDeudor);
 
-            var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
+            //var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            if (result <= 0) throw new Exception("Error al registrar");
+            //if (result <= 0) throw new Exception("Error al registrar");
 
             return Unit.Value;
         }

@@ -1,4 +1,4 @@
-﻿using PrototipoCleanArchitecture.Application.Interfaces.Controllers;
+﻿using PrototipoCleanArchitecture.Application.Features.ActividadEconomicaDeudores.Command.Create;
 
 namespace PrototipoCleanArchitecture.WebApi
 {
@@ -6,14 +6,33 @@ namespace PrototipoCleanArchitecture.WebApi
     {
         public static WebApplication UseApplicationEndPoints(this WebApplication app)
         {
-            app.MapGet("/specials",
+            app.MapGet("/EconomicActivityDebtor",
                  async (IActividadEconomicaDeudorController controller) =>
                  {
-                     var Result = await controller.GetAll();
+                     var result = await controller.GetAll();
 
-                     return Results.Ok(Result);
+                     return Results.Ok(result);
 
                  });
+
+            app.MapPost("/EconomicActivityDebtor",
+                async (IActividadEconomicaDeudorController controller, CreateActividadEconomicaDeudorCommand command) =>
+                {
+                    var result = await controller.Create(command);
+
+                    return Results.Ok(result);
+
+                });
+
+
+            app.MapGet("/EconomicActivityDebtor/{rut}",
+                async (IActividadEconomicaDeudorController controller, string rut) =>
+                {
+                    var result = await controller.GetByRutDeudor(rut);
+
+                    return Results.Ok(result);
+
+                });
 
 
             return app;

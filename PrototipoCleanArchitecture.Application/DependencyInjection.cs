@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace PrototipoCleanArchitecture.Application
+﻿namespace PrototipoCleanArchitecture.Application
 {
     public static class DependencyInjection
     {
@@ -10,7 +8,14 @@ namespace PrototipoCleanArchitecture.Application
                 config.RegisterServicesFromAssemblyContaining<ApplicationAssemblyReference>();
             });
 
+            services.AddScoped(
+                typeof(IPipelineBehavior<,>),
+                typeof(ValidationBehavior<,>)
+            
+            );
+
             services.AddValidatorsFromAssemblyContaining<ApplicationAssemblyReference>();
+
 
             return services;
         }

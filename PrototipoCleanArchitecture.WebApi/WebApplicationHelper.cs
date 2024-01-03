@@ -36,6 +36,8 @@
 
             app.UseCors();
 
+            app.UseMiddleware<ExceptionMiddleware>();
+
             return app;
         }
     }

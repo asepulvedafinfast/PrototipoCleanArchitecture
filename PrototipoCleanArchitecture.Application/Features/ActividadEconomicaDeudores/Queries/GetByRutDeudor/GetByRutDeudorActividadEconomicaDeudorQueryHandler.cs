@@ -15,7 +15,7 @@
         {
             var data = await _repository.GetByRutDeudorAsync(request.Rut);
 
-            if (data == null) throw new Exception("El registro no existe");
+            if (data == null) throw new NotFoundException(nameof(ActividadEconomicaDeudor), request.Rut);
 
             return new ActividadEconomicaDeudorResponse(data.Id, data.RutDeudor, data.Codigo,data.Descripcion, data.FechaIngreso);
         }

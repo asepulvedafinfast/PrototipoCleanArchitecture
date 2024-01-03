@@ -1,6 +1,4 @@
-﻿using PrototipoCleanArchitecture.Application;
-
-namespace PrototipoCleanArchitecture.WebApi
+﻿namespace PrototipoCleanArchitecture.WebApi
 {
     public static class DependencyInjection
     {
