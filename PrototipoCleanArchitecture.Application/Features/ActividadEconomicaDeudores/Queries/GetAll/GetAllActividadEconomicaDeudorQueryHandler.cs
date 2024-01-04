@@ -13,9 +13,9 @@
         public async Task<List<ActividadEconomicaDeudorResponse>> Handle(
             GetAllActividadEconomicaDeudorQuery request, CancellationToken cancellationToken)
         {
-            var data = await _repository.GetAllAsync();
+            var list = await _repository.GetAllAsync();
 
-            return data.Select(
+            return list.Select(
                 p => new ActividadEconomicaDeudorResponse(
                     p.Id,
                     p.RutDeudor,
